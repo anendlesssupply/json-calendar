@@ -122,8 +122,15 @@ export class JsonCalendar {
       // Loop through the day index (0..6) for each week
       for (let d: number = firstDayOfWeek; d < firstDayOfWeek + 7; d += 1) {
         classNames = []
-
-        if (w === 0 && d < firstDateIndex) {
+        if(w === 0 && firstDateIndex === 0 && firstDayOfWeek >= 1 && d < 7 ) {
+          // Day of Previous Month
+          date = createDate(
+            firstDate.getFullYear(), 
+            firstDate.getMonth(), 
+            1 - ((firstDateIndex + 7) - d)
+          )
+        }
+        else if (w === 0 && d < firstDateIndex) {
           // Day of Previous Month
           date = createDate(
             firstDate.getFullYear(),
