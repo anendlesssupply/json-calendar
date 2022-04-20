@@ -65,3 +65,4 @@ dist
 
 # Custom additions to node
 .vscode
+.DS_Store
